@@ -321,9 +321,7 @@ C언어 전처리기(preprocessor)
 * `scanf`, `printf` 사용시 형식 지정자와 자료형을 일치시키세요.
   * 만약 `double`을 `int`로 출력하고 싶을 경우와 같이 형 변환이 필요할 경우 형변환 연산을 사용하면 됩니다.
   
-출처
-----
+참고자료
+--------
 
-본 문서는 다음의 문서를 기반하여 만든 것을 명시합니다.
-
-[원본 링크](http://www.digilife.be/quickreferences/qrc/c%20reference%20card%20%28ansi%29%202.2.pdf)
+1. [원본 링크](http://www.digilife.be/quickreferences/qrc/c%20reference%20card%20%28ansi%29%202.2.pdf)
