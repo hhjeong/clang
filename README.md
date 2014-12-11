@@ -1,12 +1,17 @@
-ANSI C Reference Card [<sup>*</sup>]
-====================================
+ANSI C Reference Card
+=====================
 
-들어가기에 앞서
----------------
+약어
+---
 
-본 문서는 다음의 문서를 기반하여 만든 것을 명시합니다.
-
-[원본 링크](http://www.digilife.be/quickreferences/qrc/c%20reference%20card%20%28ansi%29%202.2.pdf)
+* `statements` - 0개이상의 연속된 문장(`statement`)의 사용
+* `declarations` - 0개 이상의 연속된 변수 선언
+* `type` - 자료형
+* `identifier` - 변수나 함수 따위의 이름
+* 함수 사용 관련
+  * `c` - `char`형의 문자 상수, 변수
+  * `s` - `char []` 혹은 `char *` 형의 문자열 상수, 변수
+  * `x` - `int`혹은 `double`형의 변수
 
 프로그램 구성 요소/함수
 -----------------------
@@ -304,3 +309,21 @@ C언어 전처리기(preprocessor)
     * 제곱 함수 - `pow(x,y)`
     * 제곱근 함수 - `sqrt(x)`
     * 자리 올림, 내림 함수 - `ceil(x)`, `floor(x)`, `fabs(x)`
+
+주의사항
+--------
+
+* 과제 시스템 제출시 `system("PAUSE");` 함수를 같이 적지 마세요.
+* 가급적 `main`함수는 `return 0;`을 적길 바랍니다.
+* 변수를 직접 참조하여 `scanf`를 사용할 경우, 반드시 주소 연산인 `&` 연산자를 붙이길 바랍니다.
+  * 단, 문자열에 대해서는 `&`를 붙일 필요가 없습니다.
+* `fopen`를 이용해 파일을 열었으면, 프로그램 종료 전 `fclose`를 사용하길 바랍니다.
+* `scanf`, `printf` 사용시 형식 지정자와 자료형을 일치시키세요.
+  * 만약 `double`을 `int`로 출력하고 싶을 경우와 같이 형 변환이 필요할 경우 형변환 연산을 사용하면 됩니다.
+  
+출처
+----
+
+본 문서는 다음의 문서를 기반하여 만든 것을 명시합니다.
+
+[원본 링크](http://www.digilife.be/quickreferences/qrc/c%20reference%20card%20%28ansi%29%202.2.pdf)
