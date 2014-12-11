@@ -163,3 +163,144 @@ C언어 전처리기(preprocessor)
 * `(type) expr` - 형변환 연산자
   * 예 - `(int)3.14` 
 
+흐름 제어
+---------
+
+* 문장의 끝 - `;`
+* 블록 - `{ ... }`
+* 반복문 탈출 명령 - `break;`
+* 뒤의 문장들을 무시하고 반복문 수행 - `continue;`
+* 값 반환 - `return expr;`
+
+### 흐름 제어를 위한 문법
+
+* `if`문
+
+  ```c
+  if( expr1 )
+  {
+    statements1
+  }
+  else if( expr2 )
+  {
+    statements2
+  }
+  else 
+  {
+    statements3
+  }
+  ```
+
+* `while` 문
+
+  ```
+    while(expr)
+    {
+      statements
+    }
+  ```
+  
+* `for` 문
+
+  ```
+    for( expr1 ; expr2 ; expr3 ) 
+    {
+      statements
+    }
+  ```
+  
+  * expr2의 조건이 참이 되어야 아래 statements가 실행
+  * expr1에는 일반적으로 반복문을 위한 변수의 초기화에 대한 수식
+  * expr3에는 일반적으로 반복문을 위한 변수의 증감에 대한 수식
+  * expr1, expr2, expr3 모두 생략 가능
+  
+* `swtich` 문
+  
+  ```c
+  switch(expr) 
+  {
+    case const1:
+      statements1;
+      break;
+    case const2:
+      statements2;
+      break;
+    default:
+      statements;
+  }
+  ```
+  
+기본 라이브러리
+---------------
+
+* `<ctype.h>`
+  * 영문자인가? - `isalpha(c)`
+  * 숫자인가? - `isdigit(c)`
+  * 대소문자인가? - `islower(c)`, `isupper(c)`
+  * 공백문자인가? - `isspace(c)`
+  * 알파벳, 영문자인가? - `isalnum(c)`
+  * 공백, 영문자, 숫자를 제외한 문자인가? - `ispunct(c)`
+  * 대소문자로 변환하기 - `tolower(c)`, `toupper(c)`
+* `<string.h>`
+
+  `s`는 문자열 `cs`, `ct`는 문자열 상수
+  
+  *  문자열의 길이 - `strlen(s)`
+  *  `ct`를 `s`에 복사 - `strcpy(s,ct)`
+  *  `ct`를 `s`뒤에 붙이기 - `strcat(s,ct)`
+  *  `cs`와 `ct`비교 - `strcmp(cs,ct)`
+    *  같을 경우 - `0` 
+    *  `cs`가 `ct`보다 사전순으로 앞서 있을 경우 - `<0`
+    *  이외의 경우 - `>0`
+
+  
+* `<stdio.h>` - 입출력을 위한 헤더
+  * 표준 입출력
+    * 표준 입력, 출력, 오류 stream - `stdin`, `stdout`, `stderr` 
+    * 파일의 끝 - `EOF`
+    * 한글자 읽기 - `getchar()`
+    * 한글자 출력 - `putchar(ch)`
+    * 형식에 따른 출력 - `printf("format", arg1, ... )`
+    * 문자열 `s`에 출력 - `sprintf(s, "format", arg1, ...)`
+    * 형식에 따른 입력 - `scanf("format", &identifier)`
+    * 문자열 `s`에서 값 읽기 - `sscanf(s, "format", &identifier)`
+    * 문자열 출력하고 `'\n'`도 출력하기 - `puts(s)`
+  * 파일 입출력
+    * 파일 포인터 선언하기 - `FILE *fp;`
+    * 파일 열기 - `fp = fopen("filename", "mode");`
+      * `mode` - `r` (읽기), `w` (쓰기), `a` (이어쓰기)
+    * 한글자 읽기 - `getc(fp)`
+    * 한글자 출력 - `putc(ch,fp)`
+    * 형식에 따른 출력 - `fprintf(fp, "format", arg1, ...)`
+    * 형식에 따른 입력 - `fscanf(fp, "format", arg1, ...)`
+    * 파일 닫기 - `fclose(fp)`
+    * `EOF` 확인 - `feof(fp)`
+    * 한줄에서 `size`미만의 문자열 읽기 - `fgets(s,size,fp)`
+    * 문자열 출력 - `fputs(s,fp)`
+  * 형식 지정자 : `"%-+ 0w.pc"`
+    * `-` - 왼쪽 정렬
+    * `+` - 부호 출력
+    * ` `(공백) - 부호가 없을 경우 공백 출력
+    * `0` - 빈 공간에 0을 출력
+    * `w` - 출력시의 공간의 너비
+    * `p` - 정밀도
+    * `c` - 출력 변수, 상수의 자료형 지정
+      * `d` - 정수형
+      * `f` - 실수형
+      * `lf` - `scanf`/`fscanf`에서 사용되는 `double`자료형을 위한 지정자
+      * `c` - 문자
+      * `s` - 문자열
+      
+* `<stdlib.h>`
+  * 절댓값 - `abs(n)`
+  * 문자열 `s`를 `double`로 - `atof(s)`
+  * 문자열 `s`를 `int`로 - `atoi(s)`
+  * 시스템 명령 사용 - `system(s)`
+  * 프로그램 종료 - `exit(status)`
+* `<math.h>`
+    * 삼각함수 - `sin(x)`, `cos(x)`, `tan(x)`
+      * 역함수 - `asin(x)`, `acos(x)`, `atan(x)`, `atan2(y,x)`
+    * 지수 관련 함수 - `exp(x)`, `log(x)`, `log10(x)`
+    * 제곱 함수 - `pow(x,y)`
+    * 제곱근 함수 - `sqrt(x)`
+    * 자리 올림, 내림 함수 - `ceil(x)`, `floor(x)`, `fabs(x)`
