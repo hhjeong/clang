@@ -64,12 +64,6 @@ C언어 전처리기(preprocessor)
     * math.h - math library
     * string.h - string(문자열) library
 
-* scanf/printf 사용시 `C4996` 오류를 해결 하는 방법
-
-  ```c
-  #pragma warning(disable:4996)
-  ```
-  
 * `#define` 전처리기를 이용한 상수 정의
   * 문법
     
@@ -114,8 +108,8 @@ C언어 전처리기(preprocessor)
 * 문자열 상수 - `"abc...def"`
   * 뒤에 자동으로 `'\0'`가 추가됨
 
-포인터와 배열, 구조체
----------------------
+포인터와 배열
+-------------
 
 * 포인터 선언 - `type *identifier;`
 * NULL 포인터 - `NULL`
@@ -124,27 +118,6 @@ C언어 전처리기(preprocessor)
 * 배열
   * 1차원 배열의 원소 접근법 - `identifier[index]`
   * 2차원 배열의 원소 접근법 - `identifier[index1][index2]`
-* 구조체
-  * 정의 방법
-    
-    ```c
-      typedef struct {
-        declarations
-      } strcut_name;
-    ```
-
-  * 선언 방법
-  
-    ```
-      struct_name idenitifer;
-      struct_name identifier[size];
-    ```
-    
-  * 멤버 사용법
-  
-    * `identifier.member_name`
-    * `identifier[index].member_name` - 구조체 배열일 경우
-    * `identifier.member_name[index]` - member가 배열일 경우
 
 연산자
 ------
