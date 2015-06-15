@@ -1,8 +1,29 @@
+Code blocks 사용 팁
+===================
+
+유용한 단축키
+-------------
+
+* `F8` - 디버그 모드로 진입 및 실행, 다음의 `break point`까지 실행
+* `F9` - 컴파일 후 전체 실행 (`break point` 무시됨)
+* `F5` - `break point` 활성/비활성
+* `F7` - 한 단계씩 실행
+* `shift+F8` - 디버그 종료
+
+프로젝트 만들기
+---------------
+1. `File > New > Project` 선택
+2. `Console application` 선택 후 `Go` 클릭
+3. 다음에 전환된 창에서 `next`선택
+4. `C`선택 후 `next`클릭, 만약 `sort`를 사용하고 싶을 경우 `C++` 선택
+5. `Project title`에는 적당한 이름을 적고, 만약 `Resulting filename`이 제대로 안보이면 `...`버튼을 눌러 설정
+6. `Finish`선택
+
 ANSI C Reference Card
 =====================
 
 약어
----
+----
 
 * `statements` - 0개이상의 연속된 문장(`statement`)의 사용
 * `declarations` - 0개 이상의 연속된 변수 선언
@@ -231,7 +252,6 @@ C언어 전처리기(preprocessor)
     *  `cs`가 `ct`보다 사전순으로 앞서 있을 경우 - `<0`
     *  이외의 경우 - `>0`
 
-  
 * `<stdio.h>` - 입출력을 위한 헤더
   * 표준 입출력
     * 표준 입력, 출력, 오류 stream - `stdin`, `stdout`, `stderr` 
@@ -286,7 +306,6 @@ C언어 전처리기(preprocessor)
 주의사항
 --------
 
-* 과제 시스템 제출시 `system("PAUSE");` 함수를 같이 적지 마세요.
 * 가급적 `main`함수는 `return 0;`을 적길 바랍니다.
 * 변수를 직접 참조하여 `scanf`를 사용할 경우, 반드시 주소 연산인 `&` 연산자를 붙이길 바랍니다.
   * 단, 문자열에 대해서는 `&`를 붙일 필요가 없습니다.
